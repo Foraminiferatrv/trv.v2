@@ -1,4 +1,55 @@
-.header{
-    background: #000;
-    background-repeat: repeat;
+@import './variables';
+.header {
+  background-image: url(../content/pattern.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .navbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #fff;
+    width: 100%;
+
+    .link{
+      color:#fff;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: color 0.3s ease-in-out;
+
+      &:hover{
+        color: $accent-color;
+        text-decoration: none;
+      }
+    }
+
+    .navigation {
+      list-style-type: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+
+      .item {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1.8em;
+
+
+        &.item~.item {
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .actions {
+      margin-left: auto;
+
+      .action{
+
+        .icon{
+          margin-right: 5px;
+        }
+      }
+    }
+  }
 }
