@@ -1,103 +1,165 @@
-.slider {
-  width: 100%;
-  position: relative;
-}
-
-.fuck {
-  left: 0;
-  right: 0;
-  position: absolute;
-}
-
-.slider .container {
-  width: 1200px;
-  height: 650px;
-  /* position: relative; */
-}
-
-.news {
-  margin-top: 40px;
-  width: 470px;
-  padding: 8px;
-  background-color: rgba(88, 151, 218, 0.67);
-  border-radius: 8px 8px 8px 8px;
-  text-align: center;
-  margin-bottom: 100px;
-}
-
-.news p {
-  font-size: 39px;
-  font-weight: bold;
-
-}
-
-.button {
-  /* margin-top: 1200px; */
-  padding: 28px 40px;
-  width: 262px;
-  background-color: #00b9ee;
-  color: #fff;
-  border-radius: 4px 4px 12px 4px;
-  font-size: 25px;
-  font-weight: bold;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-align: center;
-  opacity: 0.8;
-}
-
-.slidearea {
-  position: relative;
-}
-
-.news-block {
-  position: absolute;
-  width: 500px;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  width: 1200px;
-  margin: 0 auto;
-}
-
 .slider-wrap {
   position: relative;
   width: 100%;
-}
 
-.slick-arrow {
-  z-index: 2;
-}
+  .news-block {
+    position: absolute;
+    width: 500px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    width: 1200px;
+    margin: 0 auto;
+    top: 86px;
 
-.slick-prev {
-  left: 25px;
-}
+    .news {
+      min-height: 200px;
+      position: relative;
+      text-align: center;
+      margin-top: 40px;
+      width: 470px;
+      padding: 8px;
+      background-color: rgba(88, 151, 218, 0.67);
+      border-radius: 8px 8px 8px 8px;
+      margin-bottom: 100px;
 
-.slick-next {
-  right: 25px;
-}
+      p {
+        position: absolute;
+        font-size: 39px;
+        font-weight: bold;
+        color: #fff;
 
-.slider .slide {
-  max-width: 1920px;
-}
+        &.news-appear {
+          animation: appear 0.4s ease-in;
+        }
 
-.news {
-  min-height: 200px;
-  position: relative;
-  text-align: center;
-}
+        &.news-disapear {
+          animation: disapear 0.2s ease-out;
+          animation-fill-mode: forwards;
+        }
+      }
 
-.news p {
-  position: absolute;
-}
+    }
 
-.news-appear {
-  animation: appear 0.4s ease-in;
-}
+    .button {
+      padding: 28px 40px;
+      width: 262px;
+      background-color: #00b9ee;
+      color: #fff;
+      border-radius: 4px 4px 12px 4px;
+      font-size: 25px;
+      font-weight: bold;
+      text-decoration: none;
+      text-transform: uppercase;
+      text-align: center;
+      opacity: 0.8;
+    }
+  }
 
-.news-disapear {
-  animation: disapear 0.2s ease-out;
-  animation-fill-mode: forwards;
+  .slider {
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+
+    .slide {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      height: 620px;
+      outline: none;
+
+      .bg {
+        filter: blur(20px);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+
+        &-1 {
+          @extend .bg;
+          background-image: url("../content/hswpp.png");
+
+        }
+
+        &-2 {
+          @extend .bg;
+          background-image: url("../content/dota2heroes1_hu5626a5530a4f166e3ee07641bbd434cd_487182_1920x1080_resize_q75_box.jpg");
+        }
+
+        &-3 {
+          @extend .bg;
+          background-image: url("../content/cs.jpg");
+        }
+
+        &-4 {
+          @extend .bg;
+          background-image: url("../content/divinity.jpeg");
+        }
+
+        &-5 {
+          @extend .bg;
+          background-image: url("../content/pubg.jpg");
+        }
+
+
+      }
+
+      img {
+        box-shadow: 0 0 8px 8px white inset;
+        max-width: 1700px;
+        width: 100%;
+        margin: 0 auto;
+        z-index: 4;
+        position: relative;
+        
+        &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          width: 20px;
+          height: 100%;
+          background:rgba(#000,0.02);
+          filter: blur(15px);
+          z-index: 5;
+          right: 0;
+        }
+      }
+    }
+
+    .slidearea {
+      position: relative;
+    }
+
+    .slick-arrow {
+      z-index: 2;
+    }
+
+    .slick-prev {
+      left: 25px;
+    }
+
+    .slick-next {
+      right: 25px;
+
+    }
+
+    .slider .slide {
+      max-width: 1920px;
+    }
+  }
+
+  .slick-prev,
+  .slick-next {
+    &:before {
+      font-size: 40px;
+      color: #a5e3f5;
+    }
+  }
 }
 
 @keyframes disapear {

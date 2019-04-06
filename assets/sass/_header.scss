@@ -4,6 +4,7 @@
   background-image: url(../content/pattern.png);
   background-size: cover;
   background-repeat: no-repeat;
+  z-index: 2000;
 
   .navbar {
     display: flex;
@@ -18,6 +19,7 @@
       align-items: flex-start;
       position: relative;
       height: 470px;
+      z-index: 2;
 
       .banner{
         height: 80%;

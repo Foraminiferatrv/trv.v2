@@ -33,22 +33,16 @@ $( '.slider' ).on( 'afterChange', function ( event ) {
     return !slide.classList.contains( "slick-cloned" );
   } );
 
-
   var current = Array.from( slides ).find( slide => slide.classList.contains( 'slick-current' ) );
   const index = Array.from( slides ).indexOf( current );
   const newsContent = content[ index ];
-  console.log({
-    index: index,
-    current: current
-  });
-
   var pNews = document.createElement( 'p' );
   pNews.innerText = newsContent;
   pNews.classList.add( 'news-appear' );
   var newsSelector = document.querySelector( '.news' );
   var currentNews = newsSelector.querySelector( 'p' );  
   currentNews.classList.add( 'news-disapear' );
-debugger;
+  console.log('TATA');
   newsSelector.append( pNews );
   setTimeout( function () {
     currentNews.parentNode.removeChild( currentNews );
@@ -56,9 +50,3 @@ debugger;
 
 } );
 // --------------
-function Get( yourUrl ) {
-  var Httpreq = new XMLHttpRequest(); // a new request
-  Httpreq.open( "GET", yourUrl, false );
-  Httpreq.send( null );
-  return Httpreq.responseText;
-}

@@ -1,0 +1,9 @@
+body{
+  background-color: rgb(20, 30, 58);
+  
+}
+*{
+  &:focus{
+    outline: none !important;
+  }
+}
