@@ -41,14 +41,14 @@ $( '.slider' ).on( 'afterChange', function ( event ) {
     index: index,
     current: current
   });
+
   var pNews = document.createElement( 'p' );
   pNews.innerText = newsContent;
   pNews.classList.add( 'news-appear' );
   var newsSelector = document.querySelector( '.news' );
-  // newsSelector.childNodes[0].classList.add('news-disapear');
-  var currentNews = newsSelector.querySelector( 'p' );
+  var currentNews = newsSelector.querySelector( 'p' );  
   currentNews.classList.add( 'news-disapear' );
-
+debugger;
   newsSelector.append( pNews );
   setTimeout( function () {
     currentNews.parentNode.removeChild( currentNews );
