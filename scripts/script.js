@@ -16,6 +16,11 @@ $( document ).ready( function () {
   pFirst.innerText = news;
   div.append( pFirst );
 
+  const cards = document.getElementById('cards');
+  const card = document.createElement('div');
+  card.classList.add('col-12','col-md-6');
+  card.innerHTML = userCard(user);
+  cards.append(card);
 } );
 
 var content = [
@@ -50,3 +55,67 @@ $( '.slider' ).on( 'afterChange', function ( event ) {
 
 } );
 // --------------
+
+var user = {
+  avatarUrl: 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/b4/b4b091f2583cec3d8c915e452f13c21584d5295b_full.jpg',
+  stats: [70,50,16],
+  name: 'fora',
+  steamLink:'https://steamcommunity.com/profiles/76561198134844894/',
+  role: 'support',
+  links: [
+    '',
+    '',
+    '',
+    ''
+  ]
+}
+
+function userCard(user){
+  return `
+  <div class="card row">
+  <div class="avatar-block col-4">
+      <img src="${user.avatarUrl}" alt="user-avatar" class="avatar">
+  </div>
+
+  <div class="stats-block col-8">
+      <div class="stat">
+          <div class="label ">
+              <p class="label-text">strat</p>
+          </div>
+          <div class="progress-bar ">
+              <div class="progress" style="width:${user.stats[0]};"></div>
+          </div>
+      </div>
+      <div class="stat">
+          <div class="label">
+              <p class="label-text">react</p>
+          </div>
+          <div class="progress-bar">
+              <div class="progress" style="width:${user.stats[1]};"></div>
+          </div>
+      </div>
+      <div class="stat">
+          <div class="label">
+              <p class="label-text m-0">exp</p>
+          </div>
+          <div class="progress-bar">
+              <div class="progress" style="width:${user.stats[2]};"></div>
+          </div>
+      </div>
+  </div>
+  <div class="info-block col-4 mb-0">
+      <p class="info">${user.name}</p>
+      <a href="${user.steamLink}" class="link info">steam</a>
+      <p class="info">${user.role}</p>
+  </div>
+
+  <div class="col-8 mb-0">
+    <div class="links-block">
+          <a href="${user.links[0]}" class="link"><img src="./assets/content/icons/dota.png" alt=""></a>
+          <a href="${user.links[1]}" class="link"><img src="./assets/content/icons/csgo-icon-6.png" alt=""></a>
+          <a href="${user.links[2]}" class="link"><img src="./assets/content/icons/battle.png" alt=""></a>
+          <a href="${user.links[3]}" class="link"><img src="./assets/content/icons/pubg_1337277.png" alt=""></a>
+    </div>
+  </div>
+  </div>`
+}
