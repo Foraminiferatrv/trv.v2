@@ -1,27 +1,32 @@
-$( document ).ready( function () {
-  var slides = document.querySelectorAll( '.slide' );
-  console.log( {
+$(document).ready(function () {
+  var slides = document.querySelectorAll('.slide');
+  console.log({
     slides: slides
-  } );
-  $( '.slider' ).slick( {
+  });
+  $('.slider').slick({
     arrows: true,
     autoplay: false,
     autoplaySpeed: 8000,
     fade: true,
     pauseOnHover: true
-  } );
-  var div = document.querySelector( '.news' );
-  var news = content[ 0 ];
-  var pFirst = document.createElement( 'p' );
+  });
+  var div = document.querySelector('.news');
+  var news = content[0];
+  var pFirst = document.createElement('p');
   pFirst.innerText = news;
-  div.append( pFirst );
+  div.append(pFirst);
 
-  const cards = document.getElementById('cards');
-  const card = document.createElement('div');
-  card.classList.add('col-12','col-md-6');
-  card.innerHTML = userCard(user);
-  cards.append(card);
-} );
+  
+}
+);
+
+$.getJSON('../assets/data/card-data.json', (userData)=>{
+  userData.forEach(user=>{
+    addCard(user);
+  })
+  console.log(userData);
+ 
+});
 
 var content = [
   'Ahoy! We have come into the Hearthstone!',
@@ -31,46 +36,33 @@ var content = [
   'Some of us are playing even in PUBG... You may join!'
 ];
 
+$('.slider').on('afterChange', function (event) {
+  var slides = document.querySelectorAll('.slide');
+  slides = Array.from(slides).filter(function (slide) {
+    return !slide.classList.contains("slick-cloned");
+  });
 
-$( '.slider' ).on( 'afterChange', function ( event ) {
-  var slides = document.querySelectorAll( '.slide' );
-  slides = Array.from( slides ).filter( function ( slide ) {
-    return !slide.classList.contains( "slick-cloned" );
-  } );
-
-  var current = Array.from( slides ).find( slide => slide.classList.contains( 'slick-current' ) );
-  const index = Array.from( slides ).indexOf( current );
-  const newsContent = content[ index ];
-  var pNews = document.createElement( 'p' );
+  var current = Array.from(slides).find(slide => slide.classList.contains('slick-current'));
+  const index = Array.from(slides).indexOf(current);
+  const newsContent = content[index];
+  var pNews = document.createElement('p');
   pNews.innerText = newsContent;
-  pNews.classList.add( 'news-appear' );
-  var newsSelector = document.querySelector( '.news' );
-  var currentNews = newsSelector.querySelector( 'p' );  
-  currentNews.classList.add( 'news-disapear' );
-  console.log('TATA');
-  newsSelector.append( pNews );
-  setTimeout( function () {
-    currentNews.parentNode.removeChild( currentNews );
-  }, 200 );
+  pNews.classList.add('news-appear');
+  var newsSelector = document.querySelector('.news');
+  var currentNews = newsSelector.querySelector('p');
+  currentNews.classList.add('news-disapear');
+  newsSelector.append(pNews);
+  setTimeout(function () {
+    currentNews.parentNode.removeChild(currentNews);
+  }, 200);
 
-} );
+});
 // --------------
 
-var user = {
-  avatarUrl: 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/b4/b4b091f2583cec3d8c915e452f13c21584d5295b_full.jpg',
-  stats: [70,50,16],
-  name: 'fora',
-  steamLink:'https://steamcommunity.com/profiles/76561198134844894/',
-  role: 'support',
-  links: [
-    '',
-    '',
-    '',
-    ''
-  ]
-}
 
-function userCard(user){
+
+
+function userCard(user) {
   return `
   <div class="card row">
   <div class="avatar-block col-4">
@@ -83,7 +75,7 @@ function userCard(user){
               <p class="label-text">strat</p>
           </div>
           <div class="progress-bar ">
-              <div class="progress" style="width:${user.stats[0]};"></div>
+              <div class="progress" style="width:${user.stats[0]}%;"></div>
           </div>
       </div>
       <div class="stat">
@@ -91,7 +83,7 @@ function userCard(user){
               <p class="label-text">react</p>
           </div>
           <div class="progress-bar">
-              <div class="progress" style="width:${user.stats[1]};"></div>
+              <div class="progress" style="width:${user.stats[1]}%;"></div>
           </div>
       </div>
       <div class="stat">
@@ -99,7 +91,7 @@ function userCard(user){
               <p class="label-text m-0">exp</p>
           </div>
           <div class="progress-bar">
-              <div class="progress" style="width:${user.stats[2]};"></div>
+              <div class="progress" style="width:${user.stats[2]}%;"></div>
           </div>
       </div>
   </div>
@@ -118,4 +110,12 @@ function userCard(user){
     </div>
   </div>
   </div>`
+}
+
+function addCard(user) {
+  const cards = document.getElementById('cards');
+  const card = document.createElement('div');
+  card.classList.add('col-12', 'col-md-6', 'mb-3');
+  card.innerHTML = userCard(user);
+  cards.append(card);
 }

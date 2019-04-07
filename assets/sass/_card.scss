@@ -4,6 +4,8 @@
   color: #fff;
   border-radius: 7px;
   margin-bottom: -60px !important;
+  margin: 0;
+  margin-bottom: 15px !important;
 
   >* {
     margin-bottom: 30px;
@@ -52,9 +54,9 @@
 
       .progress {
         background-color: #00f8ef;
-        width: 70%;
         height: 100%;
         border-radius: 3px;
+        transition: width 0.5s ease-in-out;
       }
     }
   }
@@ -63,16 +65,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-overflow: ellipsis;
     
     .info {
       margin: 0;
       text-transform: uppercase;
+      overflow: hidden;
       font-weight: bold;
-      font-size: 24px;
+      font-size: 18px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 100%;
 
       &:first-child {
         color: rgb(235, 171, 52);
-        font-size: 26px;
+        font-size: 18px;
       }
     }
   }
