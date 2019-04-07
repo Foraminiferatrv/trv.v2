@@ -1,6 +1,19 @@
 .slider-wrap {
   position: relative;
   width: 100%;
+  display: flex;
+
+  .fade-left{
+   
+    position: absolute;
+    z-index: 1;
+    
+  }
+  .fade-right{
+     right: 1px;
+      position: absolute;
+    z-index: 1;
+    }
 
   .news-block {
     position: absolute;
@@ -81,7 +94,7 @@
 
         &-1 {
           @extend .bg;
-          background-image: url("../content/hswpp.png");
+          background-image: url("../content/hswpp.jpg");
 
         }
 
@@ -97,7 +110,7 @@
 
         &-4 {
           @extend .bg;
-          background-image: url("../content/divinity.jpeg");
+          background-image: url("../content/divinity.jpg");
         }
 
         &-5 {
@@ -110,7 +123,7 @@
 
       img {
         box-shadow: 0 0 8px 8px white inset;
-        max-width: 1700px;
+        max-width: 1920px;
         width: 100%;
         margin: 0 auto;
         z-index: 4;
