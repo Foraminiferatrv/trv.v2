@@ -1,8 +1,21 @@
 [{
   "avatarUrl": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/b4/b4b091f2583cec3d8c915e452f13c21584d5295b_full.jpg",
-  "stats": [70, 50, 16],
+  "stats": [12, 23, 97],
   "name": "foraminifera",
   "steamLink": "https://steamcommunity.com/profiles/76561198134844894/",
+  "role": "offlane",
+  "links": [
+    "",
+    "",
+    "",
+    ""
+  ]
+},
+{
+  "avatarUrl": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/57/57d57648e8cbc4043252cff5cd64cc7976213b2d_full.jpg",
+  "stats": [30, 40, 26],
+  "name": "tolan-74",
+  "steamLink": "https://steamcommunity.com/profiles/76561198326765308",
   "role": "support",
   "links": [
     "",
@@ -12,11 +25,11 @@
   ]
 },
 {
-  "avatarUrl": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/b4/b4b091f2583cec3d8c915e452f13c21584d5295b_full.jpg",
-  "stats": [10, 62, 66],
-  "name": "foraminifera",
-  "steamLink": "https://steamcommunity.com/profiles/76561198134844894/",
-  "role": "support",
+  "avatarUrl": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/14/1490891e9c788f575c27584ad34367228437739d_full.jpg",
+  "stats": [76, 47,74],
+  "name": "Misha28x",
+  "steamLink": "https://steamcommunity.com/id/misha28x",
+  "role": "mid",
   "links": [
     "",
     "",
@@ -25,24 +38,11 @@
   ]
 },
 {
-  "avatarUrl": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/b4/b4b091f2583cec3d8c915e452f13c21584d5295b_full.jpg",
-  "stats": [20, 80, 36],
-  "name": "foraminifera",
-  "steamLink": "https://steamcommunity.com/profiles/76561198134844894/",
-  "role": "support",
-  "links": [
-    "",
-    "",
-    "",
-    ""
-  ]
-},
-{
-  "avatarUrl": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/b4/b4b091f2583cec3d8c915e452f13c21584d5295b_full.jpg",
-  "stats": [3, 100, 86],
-  "name": "foraminifera",
-  "steamLink": "https://steamcommunity.com/profiles/76561198134844894/",
-  "role": "support",
+  "avatarUrl": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/55/55f4fb925466742d491a7c998eab180ca199669e_full.jpg",
+  "stats": [39, 82, 80],
+  "name": "sashatrv",
+  "steamLink": "https://steamcommunity.com/id/sashatrv",
+  "role": "cary",
   "links": [
     "",
     "",
