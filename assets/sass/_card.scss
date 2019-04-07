@@ -1,0 +1,92 @@
+.card {
+  background-color: #0e1a37;
+  padding: 40px;
+  color: #fff;
+  border-radius: 7px;
+  margin-bottom: -15px;
+
+  >* {
+    margin-bottom: 15px;
+  }
+
+  .avatar-block {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 125px;
+    align-items: center;
+    overflow: hidden;
+
+    .avatar {
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+
+  .stats-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+    .stat {
+      display: flex;
+      align-items: center;
+      height: 20px;
+
+      .label {
+        min-width: 55px;
+
+        .label-text {
+          color: rgb(221, 221, 221);
+          font-weight: bold;
+          font-size: 17px;
+          margin: 0;
+        }
+      }
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 100%;
+
+      .progress {
+        background-color: #00f8ef;
+        width: 70%;
+        height: 100%;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  .info-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .info {
+      margin: 0;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 24px;
+
+      &:first-child {
+        color: rgb(235, 171, 52);
+        font-size: 26px;
+      }
+    }
+  }
+
+  .links-block {
+    background-color: #24365e;
+    display: flex;
+    flex-wrap: wrap;
+
+    .link {
+      
+      img{
+        max-height: 50px;
+      }
+    }
+  }
+}

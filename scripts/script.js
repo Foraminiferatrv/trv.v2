@@ -5,7 +5,7 @@ $( document ).ready( function () {
   } );
   $( '.slider' ).slick( {
     arrows: true,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 8000,
     fade: true,
     pauseOnHover: true
