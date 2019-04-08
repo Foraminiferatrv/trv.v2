@@ -21,7 +21,7 @@
       height: 470px;
       z-index: 2;
 
-      .banner{
+      .banner {
         height: 80%;
       }
     }
@@ -31,7 +31,7 @@
       text-transform: uppercase;
       font-weight: bold;
       transition: color 0.3s ease-in-out;
-      
+
 
       &:hover {
         color: $accent-color;
