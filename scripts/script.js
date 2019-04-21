@@ -1,3 +1,11 @@
+
+// import { fromEvent } from 'rxjs';
+// import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+
+import {fromEvent} from 'https://dev.jspm.io/rxjs@6/_esm2015';
+import { debounceTime, distinctUntilChanged } from 'https://dev.jspm.io/rxjs@6/_esm2015/operators';
+
+
 $(document).ready(function () {
   var slides = document.querySelectorAll('.slide');
   console.log({
@@ -18,9 +26,13 @@ $(document).ready(function () {
 
   const progresses = document.querySelectorAll('.progress');
   setTimeout(() => {
-    document.addEventListener('scroll', event => {
+    
+    fromEvent(document, 'scroll').pipe(
+      debounceTime(50),
+      distinctUntilChanged()
+    ).subscribe(() =>{
       toggleProgressState(progresses);
-    });
+    })
   }, 50);
 
   toggleProgressState(progresses);
