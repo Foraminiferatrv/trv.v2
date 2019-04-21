@@ -57,6 +57,10 @@
         height: 100%;
         border-radius: 3px;
         transition: width 0.5s ease-in-out;
+
+        &.out-of-view{
+          width: 0 !important;
+        }
       }
     }
   }

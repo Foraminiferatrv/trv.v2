@@ -25,6 +25,9 @@
     top: 86px;
 
     .news {
+      display:flex;
+      justify-content: center;
+      align-items: center;
       min-height: 200px;
       position: relative;
       text-align: center;
@@ -39,13 +42,16 @@
         font-size: 39px;
         font-weight: bold;
         color: #fff;
+        position: absolute;
+        width: 100%;
+        text-align: center;
 
         &.news-appear {
           animation: appear 0.4s ease-in;
         }
 
         &.news-disapear {
-          animation: disapear 0.2s ease-out;
+          animation: disapear 0.3s ease-out;
           animation-fill-mode: forwards;
         }
       }

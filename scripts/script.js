@@ -1,31 +1,59 @@
-$( document ).ready( function () {
-  var slides = document.querySelectorAll( '.slide' );
-  console.log( {
+$(document).ready(function () {
+  var slides = document.querySelectorAll('.slide');
+  console.log({
     slides: slides
-  } );
-  $( '.slider' ).slick( {
+  });
+  $('.slider').slick({
     arrows: true,
     autoplay: true,
     autoplaySpeed: 8000,
     fade: true,
     pauseOnHover: true,
-  } );
-  var div = document.querySelector( '.news' );
-  var news = content[ 0 ];
-  var pFirst = document.createElement( 'p' );
+  });
+  var div = document.querySelector('.news');
+  var news = content[0];
+  var pFirst = document.createElement('p');
   pFirst.innerText = news;
-  div.append( pFirst );
+  div.append(pFirst);
 
+  const progresses = document.querySelectorAll('.progress');
+  setTimeout(() => {
+    document.addEventListener('scroll', event => {
+      toggleProgressState(progresses);
+    });
+  }, 50);
 
-} );
+  toggleProgressState(progresses);
+});
 
-$.getJSON( '../assets/data/card-data.json', ( userData ) => {
-  userData.forEach( user => {
-    addCard( user );
-  } )
-  console.log( userData );
+function toggleProgressState(progresses) {
+  progresses.forEach(progress => {
+    if (isInView(progress)) {
+      progress.classList.remove('out-of-view');
+    } else {
+      progress.classList.add('out-of-view');
+    }
+  });
+}
 
-} );
+function isInView(element) {
+  let rect = element.getBoundingClientRect();
+
+  return (
+    rect.top >= 0 &&
+    rect.left > 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  )
+}
+
+$.getJSON('../assets/data/card-data.json', (userData) => {
+  userData.forEach(user => {
+    addCard(user);
+  })
+  console.log(userData);
+
+});
 
 var content = [
   'Ahoy! We have come into the Hearthstone!',
@@ -35,33 +63,32 @@ var content = [
   'Some of us are playing even in PUBG... You may join!'
 ];
 
-$( '.slider' ).on( 'afterChange', function ( event ) {
-  var slides = document.querySelectorAll( '.slide' );
-  slides = Array.from( slides ).filter( function ( slide ) {
-    return !slide.classList.contains( "slick-cloned" );
-  } );
+$('.slider').on('afterChange', function (event) {
+  var slides = document.querySelectorAll('.slide');
+  slides = Array.from(slides).filter(function (slide) {
+    return !slide.classList.contains("slick-cloned");
+  });
 
-  var current = Array.from( slides ).find( slide => slide.classList.contains( 'slick-current' ) );
-  const index = Array.from( slides ).indexOf( current );
-  const newsContent = content[ index ];
-  var pNews = document.createElement( 'p' );
+  var current = Array.from(slides).find(slide => slide.classList.contains('slick-current'));
+  const index = Array.from(slides).indexOf(current);
+  const newsContent = content[index];
+  var pNews = document.createElement('p');
   pNews.innerText = newsContent;
-  pNews.classList.add( 'news-appear' );
-  var newsSelector = document.querySelector( '.news' );
-  var currentNews = newsSelector.querySelector( 'p' );
-  currentNews.classList.add( 'news-disapear' );
-  newsSelector.append( pNews );
-  setTimeout( function () {
-    currentNews.parentNode.removeChild( currentNews );
-  }, 200 );
-
-} );
+  pNews.classList.add('news-appear');
+  var newsSelector = document.querySelector('.news');
+  var currentNews = newsSelector.querySelector('p');
+  currentNews.classList.add('news-disapear');
+  newsSelector.append(pNews);
+  setTimeout(function () {
+    currentNews.parentNode.removeChild(currentNews);
+  }, 200);
+});
 // --------------
 
 
 
 
-function userCard( user ) {
+function userCard(user) {
   return `
   <div class="card row">
   <div class="avatar-block col-4">
@@ -74,7 +101,7 @@ function userCard( user ) {
               <p class="label-text">strat</p>
           </div>
           <div class="progress-bar ">
-              <div class="progress" style="width:${user.stats[0]}%;"></div>
+              <div class="progress out-of-view" style="width:${user.stats[0]}%;"></div>
           </div>
       </div>
       <div class="stat">
@@ -82,7 +109,7 @@ function userCard( user ) {
               <p class="label-text">react</p>
           </div>
           <div class="progress-bar">
-              <div class="progress" style="width:${user.stats[1]}%;"></div>
+              <div class="progress out-of-view" style="width:${user.stats[1]}%;"></div>
           </div>
       </div>
       <div class="stat">
@@ -90,7 +117,7 @@ function userCard( user ) {
               <p class="label-text m-0">exp</p>
           </div>
           <div class="progress-bar">
-              <div class="progress" style="width:${user.stats[2]}%;"></div>
+              <div class="progress out-of-view" style="width:${user.stats[2]}%;"></div>
           </div>
       </div>
   </div>
@@ -108,16 +135,16 @@ function userCard( user ) {
   </div>`;
 }
 
-function addCard( user ) {
-  const cards = document.getElementById( 'cards' );
-  const card = document.createElement( 'div' );
-  card.classList.add( 'col-12', 'col-md-6', 'mb-3' );
-  card.innerHTML = userCard( user );
-  cards.append( card );
+function addCard(user) {
+  const cards = document.getElementById('cards');
+  const card = document.createElement('div');
+  card.classList.add('col-12', 'col-md-6', 'mb-3');
+  card.innerHTML = userCard(user);
+  cards.append(card);
 }
 
-function getImage( name ) {
-  switch ( name ) {
+function getImage(name) {
+  switch (name) {
     case 'cs':
       return '../assets/content/icons/csgo-icon-6.png';
     case 'dota':
@@ -131,6 +158,6 @@ function getImage( name ) {
   }
 }
 
-function getCardLink(icon){
+function getCardLink(icon) {
   return `<a href="${icon.link}" class="link"><img src="${getImage(icon.name)}" alt=""></a>`;
 }
